@@ -1,6 +1,6 @@
 
-import Posts from './components/Posts'
-import Stats from './components/Stats'
+import Posts from './_components/Posts'
+import Stats from './_components/Stats'
 import Image from 'next/image'
 
 export default function Page() {
