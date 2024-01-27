@@ -1,9 +1,14 @@
+"use client"
 
+import { useState } from 'react'
 import Posts from './_components/Posts'
 import Stats from './_components/Stats'
 import Image from 'next/image'
 
 export default function Page() {
+
+    const [show,setShow] = useState(false)
+
     return <main className="ml-60 pt-16 max-h-screen overflow-auto">
         <div className="px-6 py-8">
             <div className="max-w-4xl mx-auto">
@@ -40,15 +45,21 @@ export default function Page() {
                                 <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
                                 </svg>
                             </button>
-                            <button type="button" className="inline-flex items-center justify-center h-9 px-5 rounded-xl bg-gray-900 text-gray-300 hover:text-white text-sm font-semibold transition">
+                            <button 
+                            type="button"
+                             onClick={()=>setShow(!show)}
+                              className="inline-flex items-center justify-center h-9 px-5 rounded-xl bg-gray-900 text-gray-300 hover:text-white text-sm font-semibold transition">
                                 Open
                             </button>
                         </div>
                     </div>
+                    {show &&
                     <div className="grid grid-cols-2 gap-x-20">
                         <Posts />
                         <Stats />
                     </div>
+                    } 
+
                     {/* <hr className="my-10"> */}
                 </div>
             </div>
